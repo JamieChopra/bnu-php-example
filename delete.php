@@ -8,16 +8,12 @@
     //Creating local storage of the array to see if checkbox is ticked
     $thischeckbox = $_POST['checkbox'];
 
-    $i = 0;
-
-    while($i < $thischeckbox){
-        $deleterecord = $_POST['checkbox'][$i];
-
-        mysqli_query($conn,$sql "DELETE FROM students WHERE id =$thischeckbox )";
-
-        $i++;
+    foreach($thischeckbox as $id){
+    mysqli_query($conn, "DELETE FROM students WHERE ID=".$id);
     }
+
+    header("Location:delete.php");
 }
 
-    mysqli_close($conn, $sql)
+    mysqli_close($conn);
 ?>

@@ -1,4 +1,4 @@
-
+<form method="post" action="delete.php">
 <?php
 
    include("_includes/config.inc");
@@ -25,7 +25,7 @@
       // Display the modules within the html table
       while($row = mysqli_fetch_array($result)) {
          $data['content'] .= "<tr><td> $row[studentid] </td>";
-         $data['content'] .= "<td> $row[password] </td>";
+         $data['content'] .= "<td> $row[studentid] </td>";
          $data['content'] .= "<td> $row[dob] </td>";
          $data['content'] .= "<td> $row[firstname] </td>";
          $data['content'] .= "<td> $row[lastname] </td>";
@@ -34,7 +34,7 @@
          $data['content'] .= "<td> $row[county] </td>";
          $data['content'] .= "<td> $row[country] </td>";
          $data['content'] .= "<td> $row[postcode] </td>";
-         $data['content'] .= "<td><input type='checkbox' name='checkbox[]' value='.$row[studentid]'></td></tr>";
+         $data['content'] .= "<td><input type='checkbox' name='checkbox[]' value='$row[studentid]'></td></tr>";
       }
       $data['content'] .= "</table>";
 
@@ -48,23 +48,6 @@
    }
 
    echo template("templates/partials/footer.php");
-
-   if (isset($_POST['del'])){
-    //Creating local storage of the array to see if checkbox is ticked
-    $thischeckbox = $_POST['checkbox'];
-
-    $i = 0;
-
-    while($i < $thischeckbox){
-        $deleterecord = $_POST['checkbox'][$i];
-
-        mysqli_query($conn,$sql "DELETE FROM students WHERE id =$thischeckbox )";
-
-        $i++;
-    }
-}
-
-    mysqli_close($conn, $sql)
 
 ?>
 
