@@ -23,7 +23,7 @@
       $data['content'] .= "<table border='1'>";
       $data['content'] .= "<tr><th colspan='50' align='center'>Students</th></tr>";
       $data['content'] .= "<tr><th>Student ID</th><th>Password</th><th>Date of Birth</th><th>First Name</th><th>Last Name</th>
-      <th>House</th><th>Town</th><th>County</th><th>Country</th><th>Postcode</th><th>Checkbox</th><th>Image</th></tr>";
+      <th>House</th><th>Town</th><th>County</th><th>Country</th><th>Postcode</th><th>Checkbox</th></tr>";
       // Display the modules within the html table
       while($row = mysqli_fetch_array($result)) {
          $data['content'] .= "<tr><td> $row[studentid] </td>";
@@ -36,8 +36,8 @@
          $data['content'] .= "<td> $row[county] </td>";
          $data['content'] .= "<td> $row[country] </td>";
          $data['content'] .= "<td> $row[postcode] </td>";
-         $data['content'] .= "<td><input type='checkbox' name='checkbox[]' value='$row[studentid]'></td></tr>";
-         $data['content'] .= "<td> <img src='getjpg.php?id=" .$row['studentid'] . " ' width='80' height='80'></td>";
+         $data['content'] .= "<td> <input type='checkbox' name='checkbox[]' value='$row[studentid]'></td></tr>";
+         $data['content'] .= "<td> <img src='getjpg.php?studentid=$row[studentid]' width='100' height='100'></td>";
       }
       $data['content'] .= "</table>";
 
