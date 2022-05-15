@@ -9,10 +9,10 @@
     $thischeckbox = $_POST['checkbox'];
 
     foreach($thischeckbox as $id){
-    mysqli_query($conn, "DELETE FROM students WHERE ID=".$id);
+    mysqli_query($conn, "DELETE FROM student WHERE studentid=".$id);
     }
 
-    header("Location:delete.php");
+    header("Location:students.php");
 }
 
     mysqli_close($conn);

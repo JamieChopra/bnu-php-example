@@ -1,4 +1,4 @@
-<form method="post" action="delete.php">
+
 <?php
 
    include("_includes/config.inc");
@@ -17,15 +17,17 @@
 
       $result = mysqli_query($conn,$sql);
     
+      $data['content'] .= "<form method='post' action='delete.php'>";
+
       // prepare page content
       $data['content'] .= "<table border='1'>";
       $data['content'] .= "<tr><th colspan='50' align='center'>Students</th></tr>";
       $data['content'] .= "<tr><th>Student ID</th><th>Password</th><th>Date of Birth</th><th>First Name</th><th>Last Name</th>
-      <th>House</th><th>Town</th><th>County</th><th>Country</th><th>Postcode</th><th>Checkbox</th></tr>";
+      <th>House</th><th>Town</th><th>County</th><th>Country</th><th>Postcode</th><th>Checkbox</th><th>Image</th></tr>";
       // Display the modules within the html table
       while($row = mysqli_fetch_array($result)) {
          $data['content'] .= "<tr><td> $row[studentid] </td>";
-         $data['content'] .= "<td> $row[studentid] </td>";
+         $data['content'] .= "<td> $row[password] </td>";
          $data['content'] .= "<td> $row[dob] </td>";
          $data['content'] .= "<td> $row[firstname] </td>";
          $data['content'] .= "<td> $row[lastname] </td>";
@@ -35,10 +37,13 @@
          $data['content'] .= "<td> $row[country] </td>";
          $data['content'] .= "<td> $row[postcode] </td>";
          $data['content'] .= "<td><input type='checkbox' name='checkbox[]' value='$row[studentid]'></td></tr>";
+         $data['content'] .= "<td> <img src='getjpg.php?id=" .$row['studentid'] . " ' width='80' height='80'></td>";
       }
       $data['content'] .= "</table>";
 
-    
+      $data['content'] .= "<input type='submit' name='del' value='Delete'onclick=\"return confirm('Are you sure you would like to delete that?');\"/>";
+
+      $data['content'] .= "</form>";
 
       // render the template
       echo template("templates/default.php", $data);
@@ -51,8 +56,5 @@
 
 ?>
 
-<input type="submit" name="del" value="Delete"/>
 
 
-
-</form>
