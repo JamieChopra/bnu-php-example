@@ -11,6 +11,8 @@
 
       echo template("templates/partials/header.php");
       echo template("templates/partials/nav.php");
+      echo template("templates/partials/tables.php");
+      echo template("templates/partials/title.php");
 
       // Build SQL statment that selects a student's modules
       $sql = "select * from student";
@@ -19,9 +21,10 @@
     
       $data['content'] .= "<form method='post' action='delete.php'>";
 
+
       // prepare page content
-      $data['content'] .= "<table border='1'>";
-      $data['content'] .= "<tr><th colspan='50' align='center'>Students</th></tr>";
+      $data['content'] .= "<div class='title'>Students</div>";
+      $data['content'] .= "<table class='content-table'>";
       $data['content'] .= "<tr><th>Student ID</th><th>Password</th><th>Date of Birth</th><th>First Name</th><th>Last Name</th>
       <th>House</th><th>Town</th><th>County</th><th>Country</th><th>Postcode</th><th>Checkbox</th></tr>";
       // Display the modules within the html table
@@ -41,7 +44,7 @@
       }
       $data['content'] .= "</table>";
 
-      $data['content'] .= "<input type='submit' name='del' value='Delete'onclick=\"return confirm('Are you sure you would like to delete that?');\"/>";
+      $data['content'] .= "<input class='delete' type='submit' name='del' value='DELETE'onclick=\"return confirm('Are you sure you would like to delete that?');\"/>";
 
       $data['content'] .= "</form>";
 

@@ -10,6 +10,8 @@
 
       echo template("templates/partials/header.php");
       echo template("templates/partials/nav.php");
+      echo template("templates/partials/tables.php");
+      echo template("templates/partials/title.php");
 
       // Build SQL statment that selects a student's modules
       $sql = "select * from studentmodules sm, module m where m.modulecode = sm.modulecode and sm.studentid = '" . $_SESSION['id'] ."';";
@@ -17,8 +19,8 @@
       $result = mysqli_query($conn,$sql);
 
       // prepare page content
-      $data['content'] .= "<table border='1'>";
-      $data['content'] .= "<tr><th colspan='5' align='center'>Modules</th></tr>";
+      $data['content'] .= "<div class='title'>Modules</div>";
+      $data['content'] .= "<table class='modules-table'border='1'>";
       $data['content'] .= "<tr><th>Code</th><th>Type</th><th>Level</th></tr>";
       // Display the modules within the html table
       while($row = mysqli_fetch_array($result)) {

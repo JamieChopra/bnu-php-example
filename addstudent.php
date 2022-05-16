@@ -4,32 +4,37 @@ include("_includes/config.inc");
 include("_includes/dbconnect.inc");
 include("_includes/functions.inc");
 
+echo template("templates/partials/header.php");
+echo template("templates/partials/nav.php"); 
+echo template("templates/partials/formdesign.php"); 
+echo template("templates/partials/title.php");
+
 ?>
 
-<h2>Add Student</h2>
+<div class='title'>Add Student</div><br/>
    <form enctype ='multipart/form-data' name="studetails" action="savestudent.php" method="post">
-   ID :
-   <input name="stuid" type="text" required/><br/>
-   Password :
-   <input name="stupassword" type="text" required/><br/>
-   Date of Birth :
-   <input name="studob" type="text" required/><br/>
-   First Name :
-   <input name="stufirstname" type="text" required/><br/>
-   Surname :
-   <input name="stulastname" type="text" required/><br/>
-   Number and Street :
-   <input name="stuhouse" type="text" required/><br/>
-   Town :
-   <input name="stutown" type="text" required/><br/>
-   County :
-   <input name="stucounty" type="text" required/><br/>
-   Country :
-   <input name="stucountry" type="text" required><br/>
-   Postcode :
-   <input name="stupostcode" type="text" required/><br/>
-   Image :
-   <input name="stuimage" type="file" required accept='image/png image/jpg'/><br/>
+   <label>ID :</label>
+   <input name="stuid" type="text" required/><br/></br>
+   <label>Password :</label>
+   <input name="stupassword" type="text" required/><br/></br>
+   <label>Date of Birth :</label>
+   <input name="studob" type="text" required/><br/></br>
+   <label> First Name :</label>
+   <input name="stufirstname" type="text" required/><br/></br>
+   <label>Surname :</label>
+   <input name="stulastname" type="text" required/><br/></br>
+   <label>Number and Street :</label>
+   <input name="stuhouse" type="text" required/><br/></br>
+   <label>Town :</label>
+   <input name="stutown" type="text" required/><br/></br>
+   <label>County :</label>
+   <input name="stucounty" type="text" required/><br/></br>
+   <label>Country :</label>
+   <input name="stucountry" type="text" required><br/></br>
+   <label>Postcode :</label>
+   <input name="stupostcode" type="text" required/><br/></br>
+   <label>Image :</label>
+   <input name="stuimage" type="file" accept='image/png image/jpg' required/><br/><br/>
 
-   <input type="submit" value="Submit" name="submit"/>
+   <input class='sub-btn' type="submit" value="Submit" name="submit"/>
    </form>
