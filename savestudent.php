@@ -5,17 +5,17 @@ include("_includes/dbconnect.inc");
 include("_includes/functions.inc");
 
 if (isset($_POST['submit'])) {
-    $studentid = $_POST['stuid']; 
-    $password = $_POST['stupassword'];
-    $dob = $_POST['studob'];
-    $firstname = $_POST['stufirstname'];
-    $lastname = $_POST['stulastname'];
-    $house = $_POST['stuhouse'];
-    $town = $_POST['stutown'];
-    $county = $_POST['stucounty'];
-    $country = $_POST['stucountry'];
-    $postcode = $_POST['stupostcode'];
-    $image = $_FILES['stuimage']['tmp_name'];
+    $studentid = $conn->real_escape_string($_POST['stuid']); 
+    $password = $conn->real_escape_string($_POST['stupassword']);
+    $dob = $conn->real_escape_string($_POST['studob']);
+    $firstname = $conn->real_escape_string($_POST['stufirstname']);
+    $lastname = $conn->real_escape_string($_POST['stulastname']);
+    $house = $conn->real_escape_string($_POST['stuhouse']);
+    $town = $conn->real_escape_string($_POST['stutown']);
+    $county = $conn->real_escape_string($_POST['stucounty']);
+    $country = $conn->real_escape_string($_POST['stucountry']);
+    $postcode = $conn->real_escape_string($_POST['stupostcode']);
+    $image =$conn->real_escape_string( $_FILES['stuimage']['tmp_name']);
 
     if ($password)
     {

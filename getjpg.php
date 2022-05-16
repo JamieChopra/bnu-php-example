@@ -5,7 +5,7 @@
    include("_includes/functions.inc");
 
 
-   $imageid = $_GET['studentid'];
+   $imageid = $conn->real_escape_string($_GET['studentid']);
 
    $sql = "SELECT image FROM student WHERE studentid= '$imageid'";
 

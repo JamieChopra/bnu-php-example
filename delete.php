@@ -9,7 +9,8 @@
     $thischeckbox = $_POST['checkbox'];
 
     foreach($thischeckbox as $id){
-    mysqli_query($conn, "DELETE FROM student WHERE studentid=".$id);
+        $protectedid = $conn->real_escape_string($id);
+        mysqli_query($conn, "DELETE FROM student WHERE studentid=".$id);
     }
 
     header("Location:students.php");
