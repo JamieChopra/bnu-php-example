@@ -30,5 +30,6 @@
       VALUES('67904608', 'F3~Z4F})yy[n]#u+', '2000-12-15', 'Kayvon', 'Thibodeaux', '99 GOAT Street', 'Los Angeles', 'California', 'United States', 'LA1 5X')";
       $result = mysqli_query($conn,$sql);
 
+      header("Location: students.php");
     }
 ?>
